@@ -1,5 +1,6 @@
 package Entities
 
+
 /** DBConnection class handles all methods that interact with the database */
 
 class DBConnection(username: String, password: String) {

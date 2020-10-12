@@ -15,6 +15,7 @@ class CLUI {
   }
 
   def printOptions(): Unit ={
+    println("_______________________________________OPTIONS______________________________________________________")
     println("upload [filename] : uploads a CSV file to the database")
     println("clear : empties the database")
     println("delete [board game name] : deletes a board game with the given name")
