@@ -3,7 +3,7 @@ package Entities
 
 object Model{
   private val username = "username"
-  private val password = "passsword"
+  private val password = "password"
   val menu: CLUI = new CLUI()
   val db: DBConnection = new DBConnection(username, password)
 
