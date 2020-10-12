@@ -1,0 +1,43 @@
+[debug] Packaging C:\Users\river\IdeaProjects\Tidd_Project0\target\scala-2.13\tidd_project0_2.13-0.1.jar ...
+[debug] Input file mappings:
+[debug] 	Action.class
+[debug] 	  C:\Users\river\IdeaProjects\Tidd_Project0\target\scala-2.13\classes\Action.class
+[debug] 	Clear_DB$.class
+[debug] 	  C:\Users\river\IdeaProjects\Tidd_Project0\target\scala-2.13\classes\Clear_DB$.class
+[debug] 	Clear_DB.class
+[debug] 	  C:\Users\river\IdeaProjects\Tidd_Project0\target\scala-2.13\classes\Clear_DB.class
+[debug] 	DBConnection.class
+[debug] 	  C:\Users\river\IdeaProjects\Tidd_Project0\target\scala-2.13\classes\DBConnection.class
+[debug] 	Delete_Game$.class
+[debug] 	  C:\Users\river\IdeaProjects\Tidd_Project0\target\scala-2.13\classes\Delete_Game$.class
+[debug] 	Delete_Game.class
+[debug] 	  C:\Users\river\IdeaProjects\Tidd_Project0\target\scala-2.13\classes\Delete_Game.class
+[debug] 	Help$.class
+[debug] 	  C:\Users\river\IdeaProjects\Tidd_Project0\target\scala-2.13\classes\Help$.class
+[debug] 	Help.class
+[debug] 	  C:\Users\river\IdeaProjects\Tidd_Project0\target\scala-2.13\classes\Help.class
+[debug] 	Model$.class
+[debug] 	  C:\Users\river\IdeaProjects\Tidd_Project0\target\scala-2.13\classes\Model$.class
+[debug] 	Model.class
+[debug] 	  C:\Users\river\IdeaProjects\Tidd_Project0\target\scala-2.13\classes\Model.class
+[debug] 	Search_Game$.class
+[debug] 	  C:\Users\river\IdeaProjects\Tidd_Project0\target\scala-2.13\classes\Search_Game$.class
+[debug] 	Search_Game.class
+[debug] 	  C:\Users\river\IdeaProjects\Tidd_Project0\target\scala-2.13\classes\Search_Game.class
+[debug] 	Show_All$.class
+[debug] 	  C:\Users\river\IdeaProjects\Tidd_Project0\target\scala-2.13\classes\Show_All$.class
+[debug] 	Show_All.class
+[debug] 	  C:\Users\river\IdeaProjects\Tidd_Project0\target\scala-2.13\classes\Show_All.class
+[debug] 	Unknown$.class
+[debug] 	  C:\Users\river\IdeaProjects\Tidd_Project0\target\scala-2.13\classes\Unknown$.class
+[debug] 	Unknown.class
+[debug] 	  C:\Users\river\IdeaProjects\Tidd_Project0\target\scala-2.13\classes\Unknown.class
+[debug] 	Update_Game$.class
+[debug] 	  C:\Users\river\IdeaProjects\Tidd_Project0\target\scala-2.13\classes\Update_Game$.class
+[debug] 	Update_Game.class
+[debug] 	  C:\Users\river\IdeaProjects\Tidd_Project0\target\scala-2.13\classes\Update_Game.class
+[debug] 	Upload_CSV$.class
+[debug] 	  C:\Users\river\IdeaProjects\Tidd_Project0\target\scala-2.13\classes\Upload_CSV$.class
+[debug] 	Upload_CSV.class
+[debug] 	  C:\Users\river\IdeaProjects\Tidd_Project0\target\scala-2.13\classes\Upload_CSV.class
+[debug] Done packaging.
