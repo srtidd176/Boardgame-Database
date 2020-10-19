@@ -35,7 +35,8 @@ class DBConnection(mongoClient : MongoClient) {
    * @tparam T :  The datatype
    */
   def printResults[T](obs: Observable[T]): Unit = {
-    getResults(obs).foreach(println(_))
+    getResults(obs).foreach(_ match{ case game:BoardGame =>
+      println(s"Title: ${game.title}, Average Playtime in Hours: ${game.hours}, Max Players: ${game.numPlayers}, User Rank: ${game.rank}")})
   }
 
   /**
