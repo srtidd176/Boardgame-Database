@@ -35,65 +35,79 @@ class CLUI(db : DBConnection) {
   def menu(): Unit = {
     var continueMainLoop = true
     printWelcome()
+    var isEmpty=false
     while(continueMainLoop){
-      printOptions()
-      StdIn.readLine() match {
-        case commandLine(cmd, arg) if cmd.equalsIgnoreCase("upload") => {
-          try{
-            db.uploadCSV(arg)
-            println(s"I just uploaded the CSV file called $arg")
-          }catch {
-            case e: FileNotFoundException => println(s"'$arg' file not found")
+      if(isEmpty==false){
+        printOptions()
+      }
+      else{
+        isEmpty = false
+      }
+      try {
+        StdIn.readLine() match {
+          case commandLine(cmd, arg) if cmd.equalsIgnoreCase("upload") => {
+            try {
+              db.uploadCSV(arg)
+              println(s"I just uploaded the CSV file called $arg")
+            } catch {
+              case e: FileNotFoundException => println(s"'$arg' file not found")
+            }
           }
-        }
-        case commandLine(cmd, arg) if cmd.equalsIgnoreCase("clear") => {
-          println("Are you sure? Data can not be recovered once deleted")
-          StdIn.readLine() match{
-            case answer:String if answer.equalsIgnoreCase("yes") =>
-              db.clearDB()
-              println("deleted all data from database")
-            case answer:String if answer.equalsIgnoreCase("no") =>
-            case answer:String => println(s"${answer} is not a valid answer. Aborting ")
+          case commandLine(cmd, arg) if cmd.equalsIgnoreCase("clear") => {
+            println("Are you sure? Data can not be recovered once deleted")
+            StdIn.readLine() match {
+              case answer: String if answer.equalsIgnoreCase("yes") =>
+                db.clearDB()
+                println("deleted all data from database")
+              case answer: String if answer.equalsIgnoreCase("no") =>
+              case answer: String => println(s"${answer} is not a valid answer. Aborting ")
+            }
           }
-        }
 
-        case addLine(cmd, title, group3, hours, numPlayers, rank) if cmd.equalsIgnoreCase("add") => {
-          db.addBoardGame(title, hours.toFloat, numPlayers.toInt, rank.toInt)
-          println(s"I just added a new board game called $title")
-        }
+          case addLine(cmd, title, group3, hours, numPlayers, rank) if cmd.equalsIgnoreCase("add") => {
+            db.addBoardGame(title, hours.toFloat, numPlayers.toInt, rank.toInt)
+            println(s"I just added a new board game called $title")
+          }
 
-        case commandLine(cmd, arg) if cmd.equalsIgnoreCase("delete") => {
-          db.deleteBoardGame(arg)
-          println(s"I just deleted a board game called $arg")
-        }
-        case commandLine(cmd, arg) if cmd.equalsIgnoreCase("search") => {
-          db.search(arg)
-          println(s"I just searched for board games similar to: $arg")
-        }
-        case updateLine(cmd, title, group3, fieldVal, value) if cmd.equalsIgnoreCase("update") => {
-          val field = group3.split(" ")(1)
-          if(field == "hours"){
-            db.updateBoardGame(title, field, value.toFloat)
+          case commandLine(cmd, arg) if cmd.equalsIgnoreCase("delete") => {
+            db.deleteBoardGame(arg)
+            println(s"I just deleted a board game called $arg")
           }
-          else if (field != "title"){
-            db.updateBoardGame(title, field, value.toInt)
+          case commandLine(cmd, arg) if cmd.equalsIgnoreCase("search") => {
+            db.search(arg)
+            println(s"I just searched for board games similar to: $arg")
           }
-          else{
-            db.updateBoardGame(title, field, value)
+          case updateLine(cmd, title, group3, fieldVal, value) if cmd.equalsIgnoreCase("update") => {
+            val field = group3.split(" ")(1)
+            if (field == "hours") {
+              db.updateBoardGame(title, field, value.toFloat)
+            }
+            else if (field != "title") {
+              db.updateBoardGame(title, field, value.toInt)
+            }
+            else {
+              db.updateBoardGame(title, field, value)
+            }
+            println(s"I just updated the ${field} field to $value for the game called $title")
           }
-          println(s"I just updated the ${field} field to $value for the game called $title")
-        }
-        case commandLine(cmd, arg) if cmd.equalsIgnoreCase("show") => {
-          db.showAll()
-          println(s"I just showed all the board games in the database")
-        }
-        case commandLine(cmd, arg) if cmd.equalsIgnoreCase("exit") =>
-          db.closeConnection()
-          continueMainLoop = false
+          case commandLine(cmd, arg) if cmd.equalsIgnoreCase("show") => {
+            db.showAll()
+            println(s"I just showed all the board games in the database")
+          }
+          case commandLine(cmd, arg) if cmd.equalsIgnoreCase("exit") =>
+            db.closeConnection()
+            continueMainLoop = false
 
-        case unknownLine(unknown) => {
-          println(s" '${unknown}' is not a valid command")
+          case "" => {
+            isEmpty = true
+          }
+
+          case unknownLine(unknown) => {
+            println(s" '${unknown}' is not a valid command")
+          }
         }
+      }catch{
+        case e:ArrayIndexOutOfBoundsException => println("You used too many arguements")
       }
     }
 
