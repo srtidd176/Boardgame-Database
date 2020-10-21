@@ -10,7 +10,7 @@ import scala.util.matching.Regex
 class CLUI(db : DBConnection) {
 
   val commandLine: Regex = "(\\w+)\\s*(.*)".r
-  val updateLine: Regex = "^(update)\\s+(\\w*.*)(\\s(\\w*.*)+\\s(\\w*.*))$".r
+  val updateLine: Regex = "^(update)\\s+(\\w*.*)(\\s(\\w*)+\\s=(\\w*.*))$".r
   val addLine : Regex = "^(add)+\\s+(\\w*.*)\\s+((\\d*\\.?\\d*)\\s+(\\d*)\\s+(\\d*)$)".r
   val unknownLine : Regex  = "(\\w*.*)".r
 
@@ -25,7 +25,7 @@ class CLUI(db : DBConnection) {
     println("add [board game name] [hours] [numPlayers] [rank] : adds a new board game with the given parameters")
     println("delete [board game name] : deletes a board game with the given name")
     println("search [board game name] : returns all boardgames with a similar name")
-    println("update [board game name] [field] [new value] : updates the field of the board game with the given name")
+    println("update [board game name] [field] =[new value] : updates the field of the board game with the given name")
     println("show : shows all the board games in the database")
     println("exit : exit from menu")
     println("____________________________________________________________________________________________________")
